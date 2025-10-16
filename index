@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hoja de Vida — Jonathan Flórez Pulido | Mesero Profesional Trilingüe</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a73e8;
+      --secondary: #f4f6f9;
+      --text: #333;
+      --muted: #666;
+      --card-bg: #fff;
+      --radius: 16px;
+      --shadow: 0 8px 20px rgba(0,0,0,0.1);
+      --font: 'Poppins', sans-serif;
+    }
+    body {
+      font-family: var(--font);
+      margin: 0;
+      padding: 0;
+      background-color: var(--secondary);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary), #0d47a1);
+      color: white;
+      padding: 50px 20px 70px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border-bottom-left-radius: var(--radius);
+      border-bottom-right-radius: var(--radius);
+      position: relative;
+    }
+    header .profile-pic {
+      width: 78px;
+      height: 120px;
+      border-radius: 300%;
+      object-fit: cover;
+      border: 3px solid white;
+      margin-bottom: 0px;
+      box-shadow: var(--shadow);
+    }
+    header h1 {
+      margin: 10px 0 8px;
+      font-size: 36px;
+      font-weight: 700;
+    }
+    header p {
+      margin: 5px 0 24px;
+      font-size: 18px;
+      color: #e3f2fd;
+      font-weight: 300;
+    }
+    .contact {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: 13px;
+      justify-content: center;
+    }
+    .contact-link {
+      color: #ffffff;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.25);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .contact-link:hover {
+      background: rgba(255, 255, 255, 0.4);
+      color: #ffffff;
+    }
+
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 8px;
+    }
+    .lang-btn {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .lang-btn:hover { background: rgba(255,255,255,0.4); }
+
+    .btn-pdf {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: #fff;
+      color: var(--primary);
+      border: none;
+      padding: 10px 18px;
+      border-radius: 24px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+    .btn-pdf:hover { background: var(--primary); color: #fff; }
+
+    main {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    section {
+      background: var(--card-bg);
+      padding: 28px;
+      margin-bottom: 28px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    section h2 {
+      border-left: 6px solid var(--primary);
+      padding-left: 12px;
+      margin-bottom: 18px;
+      font-size: 22px;
+      color: var(--primary);
+    }
+    section h3 {
+      margin-bottom: 6px;
+      font-size: 18px;
+      color: var(--text);
+      font-weight: 600;
+    }
+    section ul { padding-left: 20px; margin: 0; }
+    section li { margin-bottom: 6px; }
+
+    footer {
+      text-align: center;
+      padding: 18px;
+      background: var(--primary);
+      color: white;
+      margin-top: 40px;
+      border-top: 5px solid #0d47a1;
+      border-top-left-radius: var(--radius);
+      border-top-right-radius: var(--radius);
+      font-weight: 300;
+    }
+
+    .lang-block { display: none; }
+    .lang-block.active { display: block; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="lang-switch">
+      <button class="lang-btn" onclick="setLanguage('es')">ES</button>
+      <button class="lang-btn" onclick="setLanguage('pt')">PT</button>
+      <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+    </div>
+
+    <img src="Jonathan Florez profesional photo.jpg" alt="Foto de Jonathan Flórez Pulido" class="profile-pic">
+    <h1>Jonathan Flórez Pulido</h1>
+    <p class="role">Mesero Profesional Trilingüe | Especialista en Servicio de Alta Gastronomía | Sommelier</p>
+    <div class="contact">
+      <a class="contact-link" href="https://wa.me/573219632121" target="_blank">+57 321 963 2121</a>
+      <a class="contact-link" href="mailto:jfp.pmp@gmail.com">jfp.pmp@gmail.com</a>
+      <span class="contact-link">Bogotá, Colombia</span>
+    </div>
+    <button class="btn-pdf" onclick="savePDF()">🖨️ Guardar en PDF</button>
+  </header>
+
+  <main>
+    <div id="es" class="lang-block active">
+      <section>
+        <h2>Propuesta de Valor</h2>
+        <p>Mesero profesional políglota con sólida trayectoria en establecimientos de alta gastronomía y clubes de prestigio. Experto en servicio de pinzado francés, americano/modificado, maridaje de vinos y gestión de servicio al cliente. Con formación técnica en Mesa y Bar, Cocina y Administración de Alimentos y Bebidas (SENA), así como conocimientos especializados en Sommeliería, Enología, Barismo y Bartender. Destaco por mi habilidad de ofrecer un servicio impecable que garantiza la satisfacción del comensal y realza la experiencia culinaria en entornos de alto nivel gastronómico.</p>
+      </section>
+
+      <section>
+        <h2>Perfil Profesional</h2>
+        <p>Profesional de servicio altamente capacitado, con experiencia operativa en artes culinarias y tres programas técnicos del SENA que avalan mi experticia en la industria de alimentos y bebidas. Especializado en la prestación de un servicio de mesa excepcional, incluyendo técnicas avanzadas y maridajes. Mi dominio de inglés, portugués y francés me permite ofrecer un servicio de primera clase a comensales élite, asegurando siempre una experiencia memorable y la más alta calidad en el servicio.</p>
+      </section>
+
+      <section>
+        <h2>Experiencia Profesional</h2>
+
+        <h3>Club La Pradera de Potosí / Rancho Club — Mesero y Asesor Gastronómico <small>(Marzo 2019 – Abril 2021)</small></h3>
+        <ul>
+          <li>Prestación de servicio de mesa de alta gastronomía, incluyendo pinzado francés, americano y modificado.</li>
+          <li>Asesoramiento experto en maridaje de vinos y bebidas, optimizando la experiencia gastronómica del cliente.</li>
+          <li>Gestión de servicio al cliente en entorno exclusivo y multilingüe, garantizando máxima satisfacción.</li>
+          <li>Experiencia como sommelier, ofreciendo recomendaciones y gestión de carta de vinos.</li>
+          <li>Atención a clientela internacional gracias a dominio de varios idiomas.</li>
+        </ul>
+
+        <h3>Serlefin Zona Franca S.A.S — Coordinador de Servicio y Operaciones <small>(Enero 2025 – Julio 2025)</small></h3>
+        <ul>
+          <li>Coordiné servicios y procesos para clientes internacionales, asegurando estándares de calidad y eficiencia.</li>
+          <li>Gestioné la comunicación efectiva con clientes y equipos, resolviendo requisitos para una excelente atención.</li>
+          <li>Implementé estrategias para optimizar tiempos de respuesta y mejorar la satisfacción del cliente.</li>
+        </ul>
+
+        <h3>Conectamos S.A.S — Asistente Bilingüe de Operaciones <small>(Abril 2023 – Julio 2024)</small></h3>
+        <ul>
+          <li>Apoyé la coordinación de servicios para clientes internacionales en inglés y portugués.</li>
+          <li>Facilité la comunicación entre equipos y clientes, buscando mejorar la eficiencia y el servicio.</li>
+          <li>Contribuí a la optimización de procesos para asegurar entregas rápidas y de calidad.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Formación Académica</h2>
+        <ul>
+          <li><strong>Tecnólogo en Administración de Alimentos y Bebidas</strong> — SENA — 2023</li>
+          <li><strong>Técnico en Mesa y Bar</strong> — SENA — 2018</li>
+          <li><strong>Técnico en Cocina</strong> — SENA — 2017</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Estudios Complementarios</h2>
+        <ul>
+          <li><strong>Sommelier Profesional:</strong> Formación especializada en vinos (Grupo Seratta, diplomados).</li>
+          <li><strong>Barista Profesional:</strong> Estudios en cafés de especialidad, catación, evaluación sensorial y preparación.</li>
+          <li><strong>Bebidas Destiladas y Coctelería:</strong> Conocimientos en categorías de bebidas y mixología avanzada.</li>
+          <li>Verificación de certificados SENA: <a href="https://certificados.sena.edu.co/" target="_blank">certificados.sena.edu.co</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Idiomas</h2>
+        <ul>
+          <li>Español — Nativo</li>
+          <li>Inglés — C1 (Fluido)</li>
+          <li>Portugués — C2 (Bilingüe)</li>
+          <li>Francés — B2 (Avanzado)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Habilidades</h2>
+        <ul>
+          <li><strong>Servicio de Mesa:</strong> Pinzado francés, servicio americano/modificado, protocolo de mesa, etiqueta.</li>
+          <li><strong>Gastronomía y Bebidas:</strong> Maridaje de vinos, sommelier, barismo, cafés de especialidad.</li>
+          <li><strong>Atención al Cliente:</strong> Alta gastronomía, resolución de conflictos, comunicación efectiva.</li>
+          <li><strong>Operación y Gestión:</strong> Coordinación de servicios, gestión de inventarios, control de calidad.</li>
+          <li><strong>Multilingüe:</strong> Comunicación fluida en Español, Inglés, Portugués y Francés.</li>
+          <li><strong>Herramientas:</strong> Manejo básico de sistemas POS y reservas (OpenTable, Toast POS).</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Jonathan Flórez Pulido — CV Mesero Profesional Trilingüe</p>
+  </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+function setLanguage(lang) {
+  document.querySelectorAll('.lang-block').forEach(b => b.classList.remove('active'));
+  document.getElementById(lang).classList.add('active');
+}
+
+async function savePDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+
+  const name = 'Jonathan Flórez Pulido';
+  const role = 'Mesero Profesional Trilingüe | Especialista en Servicio de Alta Gastronomía | Sommelier';
+  const contact = '+57 321 963 2121 | jfp.pmp@gmail.com | Bogotá, Colombia';
+  let y = 20;
+
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(14);
+  doc.text(name, 20, y);
+  y += 6;
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(11);
+  doc.text(role, 20, y);
+  y += 5;
+  doc.setFontSize(9);
+  doc.setTextColor(60);
+  doc.text(contact, 20, y);
+  y += 8;
+  doc.setTextColor(0);
+
+  const text = document.querySelector('.lang-block.active').innerText.split('\n');
+  text.forEach(line => {
+    const split = doc.splitTextToSize(line, 170);
+    doc.text(split, 20, y);
+    y += split.length * 4;
+    if (y > 280) { doc.addPage(); y = 20; }
+  });
+
+  doc.save("CV_Jonathan_Florez_Mesero.pdf");
+}
+</script>
+</body>
+</html>
